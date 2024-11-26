@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en-GB"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'connect-src'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">-->
+    <title>You're offline - ChitChat</title>
+    <meta name="theme-color" content="#1b1822">
+
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview, max-video-preview:-1">
+    <link rel="stylesheet" type="text/css" href="./css/equery.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="ico" href="./favicon.png">
+    <meta name="RATING" content="RTA-5042-1996-1400-1577-RTA">
+
+    <style>
+        .pwa-offline {position: absolute;z-index: 9999;top: 0;bottom: 0;left: 0;right: 0;background: #1b1822;}
+        .wrap {display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100%;padding: 0 24px;text-align: center;}
+        .button {display: inline-block;height: 56px;padding: 0 24px;vertical-align: top;background-color: #3c76ff;border: 0;border-radius: 4px;outline: none;letter-spacing: 0.04rem;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'NunitoSans Regular', 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;font-size: 14px;line-height: 18px;font-weight: 700;color: #2a2b30;transition: color 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), background-color var(--transition-fastest) var(--cubic-ease-out);user-select: none;cursor: pointer;}
+        .button:hover {background-color: #4c86ff;}
+        .button:active {background-color: #2a69fa;}
+        .img {margin-bottom: 44px;}
+        .title {margin-bottom: 16px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'NunitoSans Regular', 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;font-size: 20px;line-height: 28px;color: #f6f7f7;}
+        .description {margin-bottom: 32px;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'NunitoSans Regular', 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;font-size: 14px;line-height: 18px;color: #aeafb7;}
+    </style>
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="pwa-offline">
+            <div class="wrap">
+                <div class="img">
+                    <svg width="64" height="64" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m 13 1 c -0.554688 0 -1 0.445312 -1 1 v 7.269531 c 0.148438 0.089844 0.289062 0.191407 0.414062 0.316407 l 0.414063 0.414062 h 0.34375 l 0.414063 -0.414062 c 0.375 -0.375 0.882812 -0.585938 1.414062 -0.585938 v -7 c 0 -0.554688 -0.445312 -1 -1 -1 z m -4 3 c -0.554688 0 -1 0.445312 -1 1 v 9 c 0 0.554688 0.445312 1 1 1 h 0.007812 c 0 -0.515625 0.191407 -1.027344 0.578126 -1.414062 l 0.414062 -0.414063 v -0.34375 l -0.414062 -0.414063 c -0.773438 -0.773437 -0.773438 -2.054687 0 -2.828124 c 0.375 -0.375 0.882812 -0.585938 1.414062 -0.585938 v -4 c 0 -0.554688 -0.445312 -1 -1 -1 z m -4 3 c -0.554688 0 -1 0.445312 -1 1 v 6 c 0 0.554688 0.445312 1 1 1 h 1 c 0.554688 0 1 -0.445312 1 -1 v -6 c 0 -0.554688 -0.445312 -1 -1 -1 z m -4 3 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 1 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 z m 0 0" fill="#e2f1f1"></path>
+                        <path d="m 11 10 c -0.265625 0 -0.519531 0.105469 -0.707031 0.292969 c -0.390625 0.390625 -0.390625 1.023437 0 1.414062 l 1.292969 1.292969 l -1.292969 1.292969 c -0.390625 0.390625 -0.390625 1.023437 0 1.414062 s 1.023437 0.390625 1.414062 0 l 1.292969 -1.292969 l 1.292969 1.292969 c 0.390625 0.390625 1.023437 0.390625 1.414062 0 s 0.390625 -1.023437 0 -1.414062 l -1.292969 -1.292969 l 1.292969 -1.292969 c 0.390625 -0.390625 0.390625 -1.023437 0 -1.414062 c -0.1875 -0.1875 -0.441406 -0.292969 -0.707031 -0.292969 s -0.519531 0.105469 -0.707031 0.292969 l -1.292969 1.292969 l -1.292969 -1.292969 c -0.1875 -0.1875 -0.441406 -0.292969 -0.707031 -0.292969 z m 0 0" fill="#e2f1f6"></path>
+                    </svg>
+                    <!--<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.2582 12.201L9.37266 14.0868L16.2117 20.926C13.068 22.5344 10.1186 24.6545 7.487 27.286L9.37258 29.1718C12.0172 26.5269 15.0096 24.4423 18.2026 22.9169L24.3359 29.05C20.9347 30.1929 17.7388 32.119 15.0295 34.8283L16.9151 36.7141C19.6626 33.9664 22.9732 32.1249 26.4754 31.1897L33.8845 38.5988C29.875 38.0295 25.656 39.287 22.572 42.371L24.4575 44.2567C28.6092 40.105 35.3315 40.091 39.5003 44.2144L45.1994 49.9136L47.085 48.0275L41.4286 42.371L41.339 42.2821L11.2582 12.201Z" fill="white"></path>
+                        <path d="M21.562 18.7336L23.7134 20.885C34.3892 18.0341 46.2521 20.7964 54.6277 29.1718L56.513 27.286C47.0557 17.8287 33.4938 14.9781 21.562 18.7336Z" fill="white"></path>
+                        <path d="M30.6644 27.8358L33.3357 30.5074C38.3421 30.8195 43.2595 32.8882 47.0853 36.7141L48.9704 34.8283C43.9443 29.8023 37.2436 27.4716 30.6644 27.8358Z" fill="white"></path>
+                        <path d="M28.2288 48.0275C30.3117 45.9449 33.6887 45.9449 35.7717 48.0275L31.9999 51.799L28.2288 48.0275Z" fill="white"></path>
+                    </svg>-->
+                </div>
+                <p id="title" class="title">The app is unavailable - probably because you're offline</p>
+                <p id="description" class="description">Please check your Internet connection and try again.</p>
+                <button id="button" class="button" onclick="location.reload();">Try again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "The app is unavailable - probably because you're offline",
+                description: 'Please check your Internet connection and try again.',
+                button: 'Try again',
+            },
+            bn: {
+                title: 'এই অ্যাপ নেই - সম্ভবত আপনি অফলাইনে রয়েছেন।',
+                description: 'অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।',
+                button: 'আবার চেষ্টা করুন',
+            },
+            cn: {
+                title: '此应用程序不可用 - 可能是因为您处于离线状态',
+                description: '请检查您的网络连接，然后重试。',
+                button: '再试一次',
+            },
+            in: {
+                title: 'ऐप उपलब्ध नहीं है - शायद आप ऑफ़लाइन हैं',
+                description: 'कृपया अपने इंटरनेट कनेक्शन की जाँच करें और दोबारा कोशिश करें।',
+                button: 'पुनः प्रयास करें',
+            },
+            id: {
+                title: 'Aplikasi ini tidak tersedia - kemungkinan Anda sedang offline',
+                description: 'Silakan periksa koneksi internet Anda dan coba lagi.',
+                button: 'Coba lagi',
+            },
+            kz: {
+                title: 'Қолданба қолжетімсіз - бәлкім, сіз желіден тыс болғандықтан болар',
+                description: 'Интернет желісіне қосылымыңызды тексеріп, әрекетті қайталаңыз.',
+                button: 'Тағы бір рет байқап көру',
+            },
+            br: {
+                title: 'O aplicativo está indisponível - provavelmente porque você está offline',
+                description: 'Por favor, verifique sua conexão com a internet e tente novamente.',
+                button: 'Tentar novamente',
+            },
+            pg: {
+                title: "The app no dey - you no get signal",
+                description: 'Check your data and try again.',
+                button: 'Try again'
+            },
+            pt: {
+                title: 'O aplicativo está indisponível - provavelmente porque você está offline',
+                description: 'Por favor, verifique sua conexão com a internet e tente novamente.',
+                button: 'Tentar novamente',
+            },
+            es: {
+                title: 'La app no está disponible - probablemente porque no tiene conexión.',
+                description: 'Compruebe su conexión a Internet y vuelva a intentarlo.',
+                button: 'Inténtelo de nuevo',
+            },
+            th: {
+                title: 'แอปไม่พร้อมใช้งาน - อาจเป็นเพราะคุณออฟไลน์อยู่',
+                description: 'โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณแล้วลองอีกครั้ง',
+                button: 'ลองทำอีกครั้ง',
+            },
+            tr: {
+                title: 'Uygulama kullanılamıyor - muhtemelen çevrimdışı olduğunuz için',
+                description: 'Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.',
+                button: 'Tekrar deneyin',
+            },
+            ua: {
+                title: 'Додаток недоступний — можливо, тому, що немає доступу до мережі',
+                description: 'Будь ласка, перевірте підключення до мережі інтернет та спробуйте знову.',
+                button: 'Спробувати ще раз',
+            },
+            vn: {
+                title: 'Ứng dụng không khả dụng - có lẽ do bạn đang ngoại tuyến',
+                description: 'Vui lòng kiểm tra kết nối Internet của bạn và thử lại.',
+                button: 'Hãy thử lại lần nữa',
+            },
+            ru: {
+                title: 'Приложение недоступно – нет подключения к интернету',
+                description: 'Пожалуйста, проверьте интернет-соединение и повторите попытку.',
+                button: 'Попробовать снова',
+            }
+        };
+
+        const locales = ['en', 'bn', 'cn', 'in', 'id', 'ru', 'kz', 'br', 'pt', 'es', 'th', 'tr', 'ua', 'vn'];
+
+        const currentLocale = (() => {
+            const localeCookieName = 'locale' + '=';
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let cookieArray = decodedCookie.split(';');
+
+            for (let i = 0; i < cookieArray.length; i++) {
+                let cookie = cookieArray[i];
+                if (cookie.includes(localeCookieName)) {
+                    while (cookie.charAt(0) == ' ') {
+                        cookie = cookie.substring(1);
+                    }
+                    if (cookie.indexOf(localeCookieName) == 0) {
+                        return cookie.substring(localeCookieName.length, cookie.length);
+                    }
+                }
+            }
+            return '';
+        })();
+
+        const currentTranslation = (() => {
+            const locale = locales.find(locale => locale === currentLocale);
+            if (locale) {
+                return translations[locale];
+            } else {
+                return translations['en'];
+            }
+        })();
+
+        const elements = ['title', 'description', 'button'];
+        elements.forEach(item => (document.getElementById(item).innerText = currentTranslation[item]));
+    </script>
+</body>
+
+</html>
