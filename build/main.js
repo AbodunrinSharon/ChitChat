@@ -1,25 +1,30 @@
-// ChatApp Main Activity
+// ChitChat Main Activity
 const VERSION = '1.0.2';
 const { app, BrowserWindow, dialog, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
 const args = require('minimist')(process.argv);
+const util = require('util');
 const logger = require('./logger.js');
+
 const log = logger.createLogger('[Main-Worker]');
 const logFile = path.join(__dirname, '../latest.log');
 const logEntry = [];
+const logStream = fs.createWriteStream(logFile, {flags: 'a'});
 fs.truncate(logFile, 0, (err) => { if (err) log.error('Error truncating log file:', err) });
 log.printLog((msg) => {
-  logEntry.push(`${typeof msg == 'string' ? msg : msg.join(' ')}\n`);
+  const logInput = `${typeof msg == 'string' ? msg : msg.join(' ')}\n`;
+  logEntry.push(logInput);
+  logStream.write(logInput);
 });
 
-log(`Starting ChatApp Main v${VERSION}`);
+log(`Starting ChitChat Main v${VERSION}`);
 const server = require('./server.js');
 const absoluteElectronPath = process.execPath;
 const relativeElectronPath = path.relative(process.cwd(), absoluteElectronPath);
 const electronPath = absoluteElectronPath.length < relativeElectronPath.length ? absoluteElectronPath : relativeElectronPath;
 let mainWindow = null;
-let rendererLog = log.createLogger('[ChatApp]');
+let rendererLog = log.createLogger('[ChitChat]');
 
 if (args.hostPort) server.init(args.hostPort);
 
@@ -29,19 +34,8 @@ function decorateURL(url) {
   return parsedUrl.toString();
 }
 
-function logMessage() {
-  for (let i = 0;i < logEntry.length;i++) {
-    fs.appendFile(logFile, logEntry[i], err => {if (err) log.error('Error writing to log File')});
-  }
-}
-
 function _quit() {
-  log(`Closing and terminating\n ChatApp v${VERSION}`);
-  if (args.hostPort) server.stop();
-  logMessage();
-  for (let i = 0;i < logEntry.length;i++) {
-    fs.appendFile(logFile, logEntry[i], err => {if (err) log.error('Error writing to log File')});
-  }
+  log(`Closing and terminating\n ChitChat v${VERSION}`);
   return;
 }
 
@@ -177,4 +171,3 @@ else if (args.indexURL) loadURL(path.resolve(app.getAppPath(), args.indexUrl));
 
 exports.loadURL = loadURL;
 exports.loadFile = loadFile;
-
