@@ -685,8 +685,8 @@
             currentDrawTypeIndex,
             drawTypeContainers;
 
-        this.history = window.history = [];
-        this.redoStack = window.redoStach =  [];
+        this.history = [];
+        this.redoStack = [];
 
         this.undoBtn = EQuery.elemt('div', null, 'app-image-toolbar-btn');
         this.redoBtn = EQuery.elemt('div', null, 'app-image-toolbar-btn');
@@ -694,8 +694,9 @@
         this.canvas = EQuery.canvas();
         this.canvas2 = EQuery.canvas();
         this.img = EQuery.elemt('img', null, null, {'src': file}, 'position: absolute;top: 0;height: 100%;width: 100%;');
-        this.container = EQuery.elemt('div', [this.img, this.canvas.domElement, this.canvas2.domElement, ], 'app-image-container', null, 'position: relative');
+        this.container = EQuery.elemt('div', [this.img, this.canvas.domElement, this.canvas2.domElement], 'app-image-container', null, 'position: relative');
         this.elt = EQuery.elemt('div', [this.container], 'app-image-root');
+        this.elt.imageDrawer = this;
 
 
         setTimeout(function () {
@@ -745,7 +746,7 @@
         EQuery(colorContainersBox).addChild([divClearLeft]);
 
 
-        let drawTypeContainersBox = EQuery.elemt('div', [this.undoBtn, this.redoBtn], null, null, 'float: right; margin-right: 3px; margin-top: 1px;');
+        /*let drawTypeContainersBox = EQuery.elemt('div', [this.undoBtn, this.redoBtn], null, null, 'float: right; margin-right: 3px; margin-top: 1px;');
         EQuery(optionContainer).addChild([drawTypeContainersBox]);
         drawTypeContainers = new Array(availableDrawTypes.length);
         for (let i = 0; i < drawTypeContainers.length; i++) {
@@ -753,7 +754,7 @@
             EQuery(drawTypeContainer).addChild([document.createTextNode(String(availableDrawTypes[i].name))]);
             EQuery(drawTypeContainer).on('mousedown', (function(ix) {return function() {setDrawType(ix)}})(i), false);
             EQuery(drawTypeContainersBox).addChild([drawTypeContainer]);
-        }
+        }*/
 
 
         let thicknessContainersBox = EQuery.elemt('div', null, null, null, 'margin: 3px; border: 1px solid #bbb; border-radius: 3px;');
@@ -767,6 +768,8 @@
         }
         divClearLeft = EQuery.elemt('div', null, null, null, 'clear:left');
         EQuery(thicknessContainersBox).addChild([divClearLeft]);
+
+        EQuery([optionContainer]).addChild([EQuery.elemt('div', [this.undoBtn, this.redoBtn])]);
 
 
         setColor(0);
@@ -952,7 +955,7 @@
         function setDrawType(drawTypeIndex) {
             if (typeof currentDrawTypeIndex !== 'undefined') EQuery(drawTypeContainers[currentDrawTypeIndex]).css('border-color: transparent');
             currentDrawTypeIndex = drawTypeIndex;
-            EQuery(drawTypeContainers[currentDrawTypeIndex]).css('border-color: #c3c3c3');
+            // EQuery(drawTypeContainers[currentDrawTypeIndex]).css('border-color: #c3c3c3');
         }
 
         this.projectImage = function () {
@@ -4248,12 +4251,12 @@
         updateDisplay(app.display);
     }
 
-    /*/ ServiceWorker
+    // ServiceWorker
     if ('serviceWorker' in navigator) {
         try {
             navigator.serviceWorker.register(host + 'chitchat/sw.js');
         } catch (error) {
             log.error(error);
         }
-    }*/
+    }
 })(this);

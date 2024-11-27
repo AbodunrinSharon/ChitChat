@@ -1,0 +1,13 @@
+{
+   "short_name":"ChitChat",
+   "name":"ChitChat",
+   "background_color":"#1b1822",
+   "theme_color":"#1b1822",
+   "display":"standalone",
+   "orientation":"any",
+   "start_url":"http://localhost:8080/chitchat",
+   "scope":"http://localhost:8080/chitchat",
+   "icons":[
+      {"src":"/chitchat/icons/icon125.png","sizes":"125x125","type":"image/png"}
+   ]
+}
