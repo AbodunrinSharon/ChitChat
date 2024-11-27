@@ -11,7 +11,7 @@ const log = logger.createLogger('[Main-Worker]');
 const logFile = path.join(__dirname, '../latest.log');
 const logEntry = [];
 const logStream = fs.createWriteStream(logFile, {flags: 'a'});
-fs.truncate(logFile, 0, (err) => { if (err) log.error('Error truncating log file:', err) });
+fs.truncate(logFile, 0, (err) => { console.log('Truncated file: ', logFile); if (err) log.error('Error truncating log file:', err) });
 log.printLog((msg) => {
   const logInput = `${typeof msg == 'string' ? msg : msg.join(' ')}\n`;
   logEntry.push(logInput);
