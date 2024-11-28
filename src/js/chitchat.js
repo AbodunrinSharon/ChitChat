@@ -146,7 +146,7 @@
     const signals = window.signals;
     const isElectron = window.location.protocol == 'file:';
     const AndroidInterface = window.AndroidInterface || {showToast: function() {}, sendMessageToActivity: function () {}};
-	window.bridge = (window.bridge !== undefined ? window.bridge : {sendData: function () {}, getVersion: function () {}, getArgs: function () {}})
+    window.bridge = (window.bridge !== undefined ? window.bridge : {sendData: function () {return new Promise(() => {})}, getVersion: function () {return new Promise(() => {})}, getArgs: function () {return new Promise(() => {})}})
     const VERSION = '1.0.2';
 
     if (document == undefined) {
