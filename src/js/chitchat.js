@@ -4254,7 +4254,7 @@
     // ServiceWorker
     if ('serviceWorker' in navigator) {
         try {
-            navigator.serviceWorker.register(host + 'chitchat/sw.js');
+            navigator.serviceWorker.register('../sw.js');
         } catch (error) {
             log.error(error);
         }
